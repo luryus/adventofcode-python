@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-import re
+import re   # just trying regexes, not really needed here
 
 
 LINE_PATTERN = re.compile('\s*(\d+)\s*(\d+)\s*(\d+)\s*')
