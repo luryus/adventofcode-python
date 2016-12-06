@@ -10,17 +10,12 @@ def main():
         return
 
     inputfile = sys.argv[1]
-    columns = []
 
     with open(inputfile) as f:
-        for line in f:
-            for i in range(len(line.strip())):
-                if len(columns) <= i:
-                    columns.append(Counter([line[i]]))
-                else:
-                    columns[i].update([line[i]])
+        cols = zip(*(line.strip() for line in f))
+        counters = [Counter(col) for col in cols]
 
-    print('Message', ''.join([c.most_common()[0][0] for c in columns]))
+    print('Message', ''.join([c.most_common(1)[0][0] for c in counters]))
 
 
 main()
