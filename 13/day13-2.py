@@ -6,17 +6,17 @@ MAX_STEPS = 50
 
 
 def parity(n: int) -> bool:
-    parity = False
-    while (n):
-        parity = not parity
+    par = False
+    while n:
+        par = not par
         n &= (n - 1)
-    return parity
+    return par
 
 
 def iswall(x, y) -> bool:
     if x < 0 or y < 0:
         return True
-    coord_sum = x*x + 3*x + 2*x*y + y + y*y + INPUT
+    coord_sum = x * x + 3 * x + 2 * x * y + y + y * y + INPUT
     return parity(coord_sum)
 
 
@@ -37,11 +37,9 @@ def previous_state(s, prev_states):
 
 
 def main():
-    pos = (1,1)
+    pos = (1, 1)
     states = [(pos, 0)]
     prev_states = []
-    prev_step = 0
-    result = None
     while states and states[0][1] <= MAX_STEPS:
         s = states.pop(0)
         prev_states.append(s)

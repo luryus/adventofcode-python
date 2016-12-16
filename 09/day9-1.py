@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, re
-from collections import deque
-
+import re
+import sys
 
 MARKER_REGEX = re.compile(r"\((\d+)x(\d+)\)")
 

@@ -2,26 +2,27 @@
 
 import sys
 
+
 def move_up(digit: int) -> int:
-    if (digit > 3):
+    if digit > 3:
         digit -= 3
     return digit
 
 
 def move_down(digit: int) -> int:
-    if (digit < 7):
+    if digit < 7:
         digit += 3
     return digit
 
 
 def move_left(digit: int) -> int:
-    if (digit not in [1, 4, 7]):
+    if digit not in [1, 4, 7]:
         digit -= 1
     return digit
 
 
 def move_right(digit: int) -> int:
-    if (digit not in [3, 6, 9]):
+    if digit not in [3, 6, 9]:
         digit += 1
     return digit
 

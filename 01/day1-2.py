@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 from tkinter import *
 
 DIR_NORTH = 0
@@ -11,7 +10,6 @@ DIR_WEST = 3
 
 def is_intersection(a, a_min, a_max, b, b_start, b_end) -> bool:
     a_valid = a_min <= a <= a_max
-    b_valid = False
     if b_start < b_end:
         b_valid = b_start < b <= b_end
     else:
@@ -26,7 +24,7 @@ def first_intersection(inters: list, start_b: int, end_b: int):
         return max(inters, key=lambda i: i[0])
 
 
-def find_intersection(a_moves:list, a_pos, start_b: int, end_b: int):
+def find_intersection(a_moves: list, a_pos, start_b: int, end_b: int):
     intersections = list(filter(lambda move: is_intersection(a_pos, move[1],
                                                              move[2], move[0],
                                                              start_b, end_b),
@@ -35,13 +33,13 @@ def find_intersection(a_moves:list, a_pos, start_b: int, end_b: int):
     if len(intersections) == 0:
         return None
     elif len(intersections) == 1:
-        return (a_pos, intersections[0][0])
+        return a_pos, intersections[0][0]
     else:
-        return (a_pos, first_intersection(intersections, start_b, end_b)[0])
+        return a_pos, first_intersection(intersections, start_b, end_b)[0]
 
 
 def draw_line(w, x1, y1, x2, y2):
-    w.create_line(2*x1, 2*y1, 2*x2, 2*y2)
+    w.create_line(2 * x1, 2 * y1, 2 * x2, 2 * y2)
 
 
 def main():
@@ -51,7 +49,6 @@ def main():
 
     inputfile = sys.argv[1]
 
-    inputtext = ""
     with open(inputfile, 'r') as f:
         inputtext = f.read()
 
@@ -83,23 +80,23 @@ def main():
 
         if direction == DIR_NORTH:
             ymoves.append((x, y - distance, y))
-            draw_line(w, x, y, x, y-distance)
-            intersection = find_intersection(xmoves, x, y, y-distance)
+            draw_line(w, x, y, x, y - distance)
+            intersection = find_intersection(xmoves, x, y, y - distance)
             y -= distance
         elif direction == DIR_WEST:
             xmoves.append((y, x - distance, x))
             draw_line(w, x, y, x - distance, y)
-            intersection = find_intersection(ymoves, y, x, x-distance)
+            intersection = find_intersection(ymoves, y, x, x - distance)
             x -= distance
         elif direction == DIR_SOUTH:
             ymoves.append((x, y, y + distance))
-            draw_line(w, x, y, x, y+distance)
-            intersection = find_intersection(xmoves, x, y, y+distance)
+            draw_line(w, x, y, x, y + distance)
+            intersection = find_intersection(xmoves, x, y, y + distance)
             y += distance
         elif direction == DIR_EAST:
             xmoves.append((y, x, x + distance))
             draw_line(w, x, y, x + distance, y)
-            intersection = find_intersection(ymoves, y, x, x+distance)
+            intersection = find_intersection(ymoves, y, x, x + distance)
             x += distance
 
         if intersection:

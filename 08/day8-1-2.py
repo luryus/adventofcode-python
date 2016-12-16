@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, re
+import re
+import sys
 from collections import deque
 
 SCREEN_WIDTH = 50
@@ -42,7 +43,7 @@ def main():
         return
 
     inputfile = sys.argv[1]
-    screen = [[0 for _ in range(SCREEN_WIDTH)] for i in range(SCREEN_HEIGHT)]
+    screen = [[0 for _ in range(SCREEN_WIDTH)] for _ in range(SCREEN_HEIGHT)]
 
     with open(inputfile) as f:
         for line in f:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, re
-
+import re
+import sys
 
 INVALID_ABBA_REGEX = re.compile(r"\[[^\]\s]*?(\w)(?!\1)(\w)\2\1[^\]\s]*?\]")
 ABBA_REGEX = re.compile(r"(\w)(?!\1)(\w)\2\1")

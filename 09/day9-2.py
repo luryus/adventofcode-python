@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, re
-from collections import deque
-
+import re
+import sys
 
 MARKER_REGEX = re.compile(r"\((\d+)x(\d+)\)")
 
@@ -15,10 +14,10 @@ def decompressed_len(compressed: str) -> int:
         pattern_len = int(m.group(1))
         pattern_repeat = int(m.group(2))
         decomp_pattern_len = decompressed_len(compressed[:pattern_len]) \
-                             * pattern_repeat
+            * pattern_repeat
 
         return before_len + decomp_pattern_len \
-                          + decompressed_len(compressed[pattern_len:])
+            + decompressed_len(compressed[pattern_len:])
     else:
         return len(compressed)
 

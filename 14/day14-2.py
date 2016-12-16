@@ -33,7 +33,8 @@ def main():
                     if len(ready_hashes) == 64:
                         break
             testing_hashes = [h for h in testing_hashes
-                              if h not in ready_hashes or counter > h[0] + 1000]
+                              if (h not in ready_hashes
+                                  or counter > h[0] + 1000)]
 
         counter += 1
 

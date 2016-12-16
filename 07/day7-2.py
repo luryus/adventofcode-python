@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, re
-
+import re
+import sys
 
 ABA_REGEX = re.compile(r"(?!(?:\w*\]))(?=(\w)(?!\1)(\w)\1)")
 
@@ -23,8 +23,7 @@ def main():
         aba_line_matches = ((line, ABA_REGEX.findall(line)) for line in f)
         bab_found = (line for (line, matches) in aba_line_matches
                      if any((True for m in matches if matching_bab(line, m))))
-        print("Count", sum(1 for b in bab_found))
-
+        print("Count", sum(1 for _ in bab_found))
 
 
 main()

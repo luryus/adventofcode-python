@@ -15,7 +15,7 @@ def valid_room_numbers(f):
                   match_tuple[1], match_tuple[2])
                  for match_tuple in match_tuples)
     return (int(room[1]) for room in room_data
-                         if list(room[0])[:5] == list(room[2]))
+            if list(room[0])[:5] == list(room[2]))
 
 
 def main():

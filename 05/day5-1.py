@@ -3,6 +3,7 @@
 import sys
 from hashlib import md5
 
+
 def main():
     if len(sys.argv) != 2:
         print("Invalid parameters. Give input word.")

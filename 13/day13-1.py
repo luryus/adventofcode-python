@@ -6,11 +6,11 @@ DEST = (31, 39)
 
 
 def parity(n: int) -> bool:
-    parity = False
-    while (n):
-        parity = not parity
+    par = False
+    while n:
+        par = not par
         n &= (n - 1)
-    return parity
+    return par
 
 
 def iswall(x, y) -> bool:
@@ -37,7 +37,7 @@ def previous_state(s, prev_states):
 
 
 def main():
-    pos = (1,1)
+    pos = (1, 1)
     states = [(pos, 0)]
     prev_states = []
     result = None

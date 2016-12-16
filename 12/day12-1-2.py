@@ -35,8 +35,8 @@ def jnz(ip, regs, x, y) -> int:
 
 
 def main():
-    regs1 = { 'a': 0, 'b': 0, 'c': 0, 'd': 0 }
-    regs2 = { 'a': 0, 'b': 0, 'c': 1, 'd': 0 }
+    regs1 = {'a': 0, 'b': 0, 'c': 0, 'd': 0}
+    regs2 = {'a': 0, 'b': 0, 'c': 1, 'd': 0}
     instructions1 = []
     instructions2 = []
     ip = 0
@@ -55,8 +55,8 @@ def main():
                 print("Invalid line", line)
                 return
 
-            instructions1.append((func, [regs1] + line.split()[1:]))
-            instructions2.append((func, [regs2] + line.split()[1:]))
+            instructions1.append((func, (regs1,) + tuple(line.split()[1:])))
+            instructions2.append((func, (regs2,) + tuple(line.split()[1:])))
 
     while ip < len(instructions1):
         ins = instructions1[ip]
@@ -69,5 +69,6 @@ def main():
 
     print("Part 1:", regs1)
     print("Part 2:", regs2)
+
 
 main()

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, re
-from collections import deque
+import re
 
 HILO_REGEX = re.compile(r"bot (\d+) gives low to " +
                         r"((?:bot|output) \d+) and high to " +
@@ -34,10 +33,10 @@ def main():
 
     while True:
         two_val_bots = [(bot_id, bot) for bot_id, bot in bot_graph.items()
-                                      if len(bot[0]) == 2]
+                        if len(bot[0]) == 2]
 
         if not two_val_bots:
-            break;
+            break
 
         for bot_id, bot in two_val_bots:
             lo_val, hi_val = min(bot[0]), max(bot[0])

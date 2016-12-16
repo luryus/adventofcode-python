@@ -7,6 +7,7 @@ DIR_EAST = 1
 DIR_SOUTH = 2
 DIR_WEST = 3
 
+
 def main():
     if len(sys.argv) != 2:
         print("Invalid parameters. Give input file name.")
@@ -14,7 +15,6 @@ def main():
 
     inputfile = sys.argv[1]
 
-    inputtext = ""
     with open(inputfile, 'r') as f:
         inputtext = f.read()
 
@@ -49,7 +49,6 @@ def main():
             print("Moving", distance, "east")
 
     print("x: {0}, y: {1}, distance: {2}".format(x, y, abs(x) + abs(y)))
-
 
 
 main()
